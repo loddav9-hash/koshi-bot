@@ -1,5 +1,6 @@
 import asyncio
 import csv
+import os
 from datetime import datetime
 from vkbottle.bot import Bot, Message
 from openai import OpenAI
