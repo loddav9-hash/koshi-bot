@@ -116,7 +116,7 @@ async def notify_admin(user_name: str, phone: str, direction: str, time: str):
 def get_ai_response(user_message: str, history: list = None) -> str:
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     if history:
-        messages.extend(history[-6:])
+        messages.extend(history[-4:])
     messages.append({"role": "user", "content": user_message})
     
     try:
@@ -124,7 +124,8 @@ def get_ai_response(user_message: str, history: list = None) -> str:
             model=MODEL_NAME,
             messages=messages,
             temperature=0.7,
-            max_tokens=500,
+            max_tokens=250,
+            timeout=30.0,
         )
         return response.choices[0].message.content
     except Exception as e:
