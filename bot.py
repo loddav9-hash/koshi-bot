@@ -153,6 +153,9 @@ async def all_messages(message: Message):
     
     history = user_histories.get(user_id, [])
     response = get_ai_response(user_text, history)
+    # Проверка на пустой ответ
+    if not response or not response.strip():
+        response = "Извините, я задумался и не смог ответить 😅 Напишите, пожалуйста, менеджеру напрямую."
     
     history.append({"role": "user", "content": user_text})
     history.append({"role": "assistant", "content": response})
