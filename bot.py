@@ -11,12 +11,12 @@ NVIDIA_API_KEY = os.environ.get("NVIDIA_API_KEY")
 ADMIN_VK_ID = int(os.environ.get("ADMIN_VK_ID", "0"))
 GROUP_ID = 240688636
 
-# === ИИ (NVIDIA NIM) ===
-NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
-MODEL_NAME = "deepseek-ai/deepseek-v4-flash-0731"
+# === ИИ (DeepSeek) ===
+DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
+MODEL_NAME = "deepseek-chat"
 
 # Инициализация клиента ИИ
-ai_client = OpenAI(base_url=NVIDIA_BASE_URL, api_key=NVIDIA_API_KEY)
+ai_client = OpenAI(base_url=DEEPSEEK_BASE_URL, api_key=os.environ.get("DEEPSEEK_API_KEY"))
 
 # === СИСТЕМНЫЙ ПРОМПТ ===
 SYSTEM_PROMPT = """
